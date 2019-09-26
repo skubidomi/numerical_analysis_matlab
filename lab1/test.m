@@ -5,3 +5,4 @@ dP = [3 4 10];
 x0 = 1;
 % newtons method
 [xk, fxk, k] = newtons(P ,dP ,x0);
+fprintf('value of x_k is %1.10e\n',xk)
