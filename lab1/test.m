@@ -20,7 +20,15 @@ fprintf('[bisection]: value of x after 3 steps is %1.10e\n',x1)
 [x] = bisection_and_newton(@f, P, dP, 1, 2);
 fprintf('[bisection & newton]: value of x is %1.10e\n',x)
 
+% contraction and simple iteration
+[x, steps] = contraction(@g, 1.5);
+fprintf('[contraction]: value of x is %1.10e after %d steps\n',x, steps)
+
 function y = f(x)
     y = x^3 + 2*x^2 + 10 * x - 20;
     % y = polyval(P, x); % somehow this does not work :(
+end
+
+function y = g(x)
+    y = 20 / (x^2 + 2*x + 10);
 end
