@@ -16,6 +16,10 @@ fprintf('value of xk2 is %1.10e\n', xk2)
 [x1, x2] = bisection(@f, 1, 2, 3);
 fprintf('value of x after 3 steps is %1.10e\n',x1)
 
+% combination of bisection and newtons
+[x] = bisection_and_newton(@f, P, dP, 1, 2);
+fprintf('value of x is %1.10e\n',x)
+
 function y = f(x)
     % y = x^3 + 2*x^2 + 10 * x - 20;
     y = polyval(P, x);
