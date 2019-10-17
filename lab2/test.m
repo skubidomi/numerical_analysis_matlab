@@ -24,14 +24,20 @@ nexttile
 plot(r_mid);
 title('Midpoint')
 
+r_sim = error_rate(@simpsons, 10);
+
+nexttile
+plot(r_sim);
+title('Simpsons')
+
 r_trap = error_rate(@trapezoid, 10);
 
 nexttile
 plot(r_trap);
 title('Trapezoid')
 
-r_sim = error_rate(@simpsons, 10);
+r_wt = error_rate(@wrong_trapezoid, 10);
 
 nexttile
-plot(r_sim);
-title('Simpsons')
+plot(r_wt);
+title('Wrong trapezoid')
