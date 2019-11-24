@@ -8,7 +8,7 @@ for i = 1:12
     h = lagrange(f, X);
     test = zeros(1000);
     for j = -5:0.001:5
-        idx = round((j + 5) * 10000 +1);
+        idx = round((j + 5) * 1000 +1);
         test(idx) = h(j) - f(j);
     end
     E(i,1) = i*2;
@@ -16,3 +16,4 @@ for i = 1:12
 end
 
 plot(E(:,1), E(:,2));
+
