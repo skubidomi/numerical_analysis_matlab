@@ -1,18 +1,18 @@
-function g = lagrange(f, X)
+function L = lagrange(f, X)
 %LAGRANGE Summary of this function goes here
 %   Detailed explanation goes here
 
 N = length(X);
 
-g = @(x) 0;
+L = @(x) 0;
 for i = 1:N
-    h = @(x) 1;
+    l = @(x) 1;
     for j = 1:N
         if(i ~= j)
-           h = @(x) h(x) * (x - X(j)) / (X(i) - X(j)); 
+           l = @(x) l(x) * (x - X(j)) / (X(i) - X(j)); 
         end
     end
-    g = @(x) g(x) + h(x)*f(X(i));
+    L = @(x) L(x) + l(x)*f(X(i));
 end
 
 end
