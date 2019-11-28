@@ -1,15 +1,19 @@
 function y = sd_lagrange_polynomial(f, from, until, n, res)
-% returns with the y points of the particular polynom
-% plot the original function on the interval
+%SD_LAGRANGE_POLYNOMIAL calculate the lagrange polynomial with a particular
+%degree and equidistant points
+%   y: returns with the y points of the polynom
+%   from: beginning of the interval
+%   until: end of the interval
+%   n: degree
+%   res: resolution between from and until
+
 xvalues = from:res:until; 
-yvalues = f(xvalues);
-plot(xvalues, yvalues);
-hold on;
 
 % Lagrange interpolation points
 step = (until-from)/n;
 points = from:step:until;
 
+% realization of "Lk" and "pn"
 l = @(x, xj, xk) (x-xj)/(xk-xj);
 y = ones(1, length(xvalues));
 yvalues = zeros(1, length(xvalues));
@@ -23,8 +27,8 @@ for k = 1:1:(n+1)
    yvalues = yvalues + y;
    y = ones(1, length(xvalues));
 end
-figure(1);
-plot(xvalues, yvalues);
+
+% return with the vector
 y = yvalues;
 
 
